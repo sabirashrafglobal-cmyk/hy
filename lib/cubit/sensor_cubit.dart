@@ -9,7 +9,7 @@ class SensorCubit extends Cubit<SensorState> {
   Future<void> fetchData() async {
     emit(state.copyWith(loading: true));
     try {
-      final response = await http.get(Uri.parse('https://example.com/data.json'));
+      final response = await http.get(Uri.parse('http://10.26.173.167/data'));
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         emit(state.copyWith(
